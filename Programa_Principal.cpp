@@ -1,11 +1,11 @@
-// Materia: Programación I, Paralelo 4
-// Grupo: 1
-// Autor: Juan
-// Fecha creación: 27-05-2026
-// Nombre del miniproyecto: Menú de Inventario - Farmacias Chávez
-
+// Materia: Programaci�n I, Paralelo 4
+// Grupo: 6
+// Autor: Juan, Pedro
+// Fecha creaci�n: 05-06-2026
+// Nombre del miniproyecto: Men� de Inventario - Farmacias Ch�vez
 #include <iostream>
-#include "libjuan.h" 
+#include "libJuan.h"
+#include "Libpedro.h"
 
 using namespace std;
 
@@ -13,46 +13,59 @@ void MenuOpciones(string nombreArchivo);
 
 int main() {
     string nombreArchivo = "PRODUCTOS.BIN";
-    system("chcp 65001"); 
+    system("chcp 65001");
     MenuOpciones(nombreArchivo);
     return 0;
 }
 
 void MenuOpciones(string nombreArchivo) {
     int opcion = 0;
+
     do {
         system("cls");
-        cout << "SISTEMA DE INVENTARIO - FARMACIAS CHÁVEZ" << endl;
-        cout << "========================================" << endl;
-        cout << "1. Opción 1: Adicionar Producto" << endl;
-        cout << "4. Opción 4: Modificar Atributos de Producto" << endl;
+
+        cout << "        SISTEMA DE INVENTARIO - FARMACIAS CHAVEZ" << endl;
+        cout << "=========================================================" << endl;
+        cout << "1. Opcion 1: Adicionar Producto" << endl;
+        cout << "2. Opcion 2: Procesar Ventas y Listar Resultados" << endl;
+        cout << "4. Opcion 4: Modificar Atributos de Producto" << endl;
+        cout << "5. Opcion 5: Adicionar Ventas Manuales" << endl;
         cout << "0. Salir" << endl;
-        cout << "========================================" << endl;
-        cout << "Seleccione una opción: ";
+        cout << "=========================================================" << endl;
+        cout << "Seleccione una opcion: ";
         cin >> opcion;
-        cin.ignore(); 
+        cin.ignore();
 
         system("cls");
 
         switch (opcion) {
-            case 1:
-                AdicionarProducto(nombreArchivo);
-                system("pause");
-                break;
-            case 4: 
-                ModificarProducto(nombreArchivo);
-                system("pause");
-                break;
-            case 0:
-                cout << "Saliendo del módulo de inventario..." << endl;
-                break;
-            default:
-                cout << "Opción inválida. Intente de nuevo." << endl;
-                system("pause");
-                break;
-        } 
-    } while (opcion != 0); 
+        case 1:
+            AdicionarProducto(nombreArchivo);
+            system("pause");
+            break;
+        case 2:
+            ProcesarVentas(nombreArchivo);
+            system("pause");
+            break;
+        case 4:
+            ModificarProducto(nombreArchivo);
+            system("pause");
+            break;
+        case 5:
+            AdicionarVentaManual();
+            system("pause");
+            break;
+        case 0:
+            cout << "Saliendo del modulo de inventario..." << endl;
+            break;
+        default:
+            cout << "Opcion invalida. Intente nuevamente." << endl;
+            system("pause");
+            break;
+        }
+
+    } while (opcion != 0);
 
     system("cls");
-    cout << "SE HA SALIDO DEL MENÚ PRINCIPAL" << endl; 
+    cout << "SE HA SALIDO DEL MENU PRINCIPAL" << endl;
 }
