@@ -11,6 +11,7 @@
 #include <cstring>
 #include <fstream>
 #include <cstdlib>
+#include <iomanip>
 #include "libJuan.h"
 
 using namespace std;
@@ -21,6 +22,7 @@ void AdicionarVentaManual();
 void ProcesarVentas(string nombreArchivo) {
     fstream archivoBin;
     structProducto producto;
+
     archivoBin.open(nombreArchivo, ios::in | ios::out | ios::binary);
     if (!archivoBin.is_open()) {
         cout << "No hay productos registrados." << endl;
@@ -28,9 +30,14 @@ void ProcesarVentas(string nombreArchivo) {
     }
 
     system("cls");
-    cout << "============================ REPORTE DE VENTAS ============================" << endl;
-    cout << "CODIGO\tNOMBRE PRODUCTO\tCANT.INICIAL\tPRECIO\tCANT.VENDIDA\tTOTAL (Bs)" << endl;
-    cout << "============================================================================" << endl;
+    cout << "==================================== REPORTE DE VENTAS ====================================" << endl;
+    cout << left << setw(8) << "CODIGO" 
+         << setw(20) << "NOMBRE PRODUCTO" 
+         << setw(15) << "CANT.INICIAL" 
+         << setw(10) << "PRECIO" 
+         << setw(15) << "CANT.VENDIDA" 
+         << setw(12) << "TOTAL (Bs)" << endl;
+    cout << "-------------------------------------------------------------------------------------------" << endl;
 
     struct Venta {
         int codProd;
@@ -76,16 +83,16 @@ void ProcesarVentas(string nombreArchivo) {
             archivoBin.write((char*)&producto, sizeof(structProducto));
         }
 
-        cout << producto.codigo << "\t" 
-             << producto.nombre << "\t\t" 
-             << stockAnterior << "\t\t" 
-             << producto.precioUnitario << "\t" 
-             << vendido << "\t\t" 
-             << totalBs << endl;
+        cout << left << setw(8) << producto.codigo
+             << setw(20) << producto.nombre
+             << setw(15) << stockAnterior
+             << setw(10) << producto.precioUnitario
+             << setw(15) << vendido
+             << setw(12) << totalBs << endl;
     }
 
     archivoBin.close();
-    cout << "============================================================================" << endl;
+    cout << "===========================================================================================" << endl;
 }
 
 void AdicionarVentaManual() {
@@ -123,4 +130,3 @@ void AdicionarVentaManual() {
 }
 
 #endif
-    
