@@ -1,8 +1,8 @@
-// Materia: Programación I, Paralelo 4
+// Materia: ProgramaciÃ³n I, Paralelo 4
 // Grupo: 6
-// Autor: Juan, Pedro
-// Fecha creación: 05-06-2026
-// Nombre del miniproyecto: Menú de Inventario - Farmacias Chávez
+// Autor: Juan, Pedro, Kevin
+// Fecha creaciÃ³n: 05-06-2026
+// Nombre del miniproyecto: MenÃº de Inventario - Farmacias ChÃ¡vez
 #include <iostream>
 #include "libJuan.h"
 #include "libKevin.h"
