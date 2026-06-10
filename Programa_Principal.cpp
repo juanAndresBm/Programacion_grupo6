@@ -5,6 +5,7 @@
 // Nombre del miniproyecto: Menú de Inventario - Farmacias Chávez
 #include <iostream>
 #include "libJuan.h"
+#include "libKevin.h"
 #include "Libpedro.h"
 
 using namespace std;
@@ -26,10 +27,11 @@ void MenuOpciones(string nombreArchivo) {
 
         cout << "        SISTEMA DE INVENTARIO - FARMACIAS CHAVEZ" << endl;
         cout << "=========================================================" << endl;
-        cout << "1. Opcion 1: Adicionar Producto" << endl;
-        cout << "2. Opcion 2: Procesar Ventas y Listar Resultados" << endl;
-        cout << "4. Opcion 4: Modificar Atributos de Producto" << endl;
-        cout << "5. Opcion 5: Adicionar Ventas Manuales" << endl;
+        cout << "1. Opcion 1: Adicionar Producto           " << endl;
+        cout << "2. Opcion 2: Procesar Ventas y Listar     " << endl;
+        cout << "3. Opcion 3: Buscar Producto por Codigo   " << endl;
+        cout << "4. Opcion 4: Modificar Atributos          " << endl;
+        cout << "5. Opcion 5: Adicionar Ventas Manuales    " << endl;
         cout << "0. Salir" << endl;
         cout << "=========================================================" << endl;
         cout << "Seleccione una opcion: ";
@@ -45,6 +47,10 @@ void MenuOpciones(string nombreArchivo) {
             break;
         case 2:
             ProcesarVentas(nombreArchivo);
+            system("pause");
+            break;
+        case 3:
+            BuscarProductoPorCodigo(nombreArchivo);
             system("pause");
             break;
         case 4:
